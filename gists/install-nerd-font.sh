@@ -5,6 +5,7 @@ echo "Ensuring fontconfig package is installed..."
 $(dpkg-query -W -f='${Status}' nano 2>/dev/null | grep -c "ok installed") \
 	|| sudo apt install fontconfig -y
 
+# TODO: allow passing font URL as argument
 # download the font
 echo "Downloading the font..."
 wget "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.ttf"

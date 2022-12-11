@@ -14,7 +14,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 2
+
       - name: Get changed files in the gists folder
         id: changed-files
         uses: tj-actions/changed-files@v34
@@ -25,20 +26,21 @@ jobs:
   generate_matrix:
     name: Generate matrix based on changed files
     needs: generate_changed_files
-    if: needs.generate_changed_files.any == 'true'
+    if: needs.generate_changed_files.outputs.any == 'true'
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.filter-matrix.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - id: filter-matrix
         uses: JoshuaTheMiller/conditional-build-matrix@main
         with:
-          filter: '[?file.contains(`${{ needs.generate-changed-files.files }}`, @) == `true`]'
+          filter: '[?github_file.contains(`${{ needs.generate_changed_files.outputs.files }}`, @) == `true`]'
 
   sync:
     name: Sync changed gists
     needs: generate_matrix
+    if: ${{ fromJson(needs.generate_matrix.outputs.matrix) }}.includes[0] != null
     strategy:
       matrix: ${{ fromJson(needs.generate_matrix.outputs.matrix) }}
     runs-on: ubuntu-latest

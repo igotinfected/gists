@@ -1,13 +1,13 @@
 [
   {
     "gist_url": "https://gist.github.com/igotinfected/b86359da8e64fd3cfd1fa11fbcbb36ba",
-    "gist_title": "Install FiraCode Nerd Font on Linux",
+    "gist_title": "install-nerd-font.sh",
     "gist_description": "Install FiraCode Nerd Font on Linux",
     "github_file": "gists/install-nerd-font.sh"
   },
   {
     "gist_url": "https://gist.github.com/igotinfected/72892169464744eb44cbf951a0ee0f3b",
-    "gist_title": "Bootstrap linux/wsl install (Ubuntu)",
+    "gist_title": "bootstrap-linux.sh",
     "gist_description": "Bootstrap linux/wsl install (Ubuntu)",
     "github_file": "gists/bootstrap-linux.sh"
   }

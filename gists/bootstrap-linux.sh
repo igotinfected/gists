@@ -5,3 +5,5 @@ curl -sS https://gist.githubusercontent.com/igotinfected/b86359da8e64fd3cfd1fa11
 
 # install starship
 curl -sS https://starship.rs/install.sh | sh
+
+# TODO: install gpg, pass, fish, ...
