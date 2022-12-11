@@ -1,0 +1,53 @@
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  generate_changed_files:
+    name: Generate string containing relative paths to changed files 
+    runs-on: ubuntu-latest
+    outputs:
+      any: ${{ steps.changed-files.outputs.any_changed }}
+      files: ${{ steps.changed-files.outputs.all_changed_files }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get changed files in the gists folder
+        id: changed-files
+        uses: tj-actions/changed-files@v34
+        with:
+          files: |
+            gists/**
+
+  generate_matrix:
+    name: Generate matrix based on changed files
+    needs: generate_changed_files
+    if: ${{ needs.generate_changed_files.any == 'true' }}
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.filter-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v2
+      - id: filter-matrix
+        uses: JoshuaTheMiller/conditional-build-matrix@main
+        with:
+          filter: '[?file.contains(`${{ needs.generate-changed-files.files }}`, @) == `true`]'
+
+  sync:
+    name: Sync changed gists
+    needs: generate_matrix
+    strategy:
+      matrix: ${{ fromJson(needs.generate_matrix.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: popsiclestick/gist-sync-action@v1.2.0
+        id: sync
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: ${{ matrix.gist_url }}
+          gist_title: ${{ matrix.gist_title }} 
+          gist_description: ${{ matrix.gist_description }}
+          github_file: ${{ matrix.github_file }}
