@@ -10,7 +10,7 @@ echo "Downloading the font..."
 wget "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.ttf"
 
 # create font directory if it doesn't exist
-echo "Creating font directory..."
+echo "Creating the font directory..."
 mkdir -p $HOME/.local/share/fonts
 
 # install the font
