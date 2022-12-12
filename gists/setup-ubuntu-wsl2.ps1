@@ -16,5 +16,5 @@ Start-Process -Filepath "$wslUpdateInstallerFilePath"
 # set wsl2 as default
 wsl --set-default-version 2
 
-# install default ubuntu distro
+# install default Ubuntu distro
 wsl --install Ubuntu

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# detect os (based on https://github.com/microsoft/WSL/issues/4071#issuecomment-1223393940)
+# detect OS (based on https://github.com/microsoft/WSL/issues/4071#issuecomment-1223393940)
 unameOut=$(uname -a)
 case "${unameOut}" in
     *Microsoft*)     OS="WSL";;
