@@ -10,5 +10,11 @@
     "gist_title": "bootstrap-linux.sh",
     "gist_description": "Bootstrap linux/wsl install (Ubuntu)",
     "github_file": "gists/bootstrap-linux.sh"
+  },
+  {
+    "gist_url": "https://gist.github.com/igotinfected/0c31fc755fcbf3ad98da823bcba21c2b",
+    "gist_title": "setup-ubuntu-wsl2.ps1",
+    "gist_description": "Setup WSL2 & lauch Ubuntu distro install",
+    "github_file": "gists/setup-ubuntu-wsl2.ps1"
   }
 ]
