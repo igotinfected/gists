@@ -54,7 +54,7 @@ dotnet tool install -g git-credential-manager
 
 # set fish as default shell
 echo "==> 🐟 setting fish as default shell..."
-chsh -s /usr/bin/fish
+sudo -u $USER chsh -s /usr/bin/fish
 
 # install nerd font
 echo "==> 💅 installing nerd font..."
