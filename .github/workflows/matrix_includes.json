@@ -16,5 +16,11 @@
     "gist_title": "setup-ubuntu-wsl2.ps1",
     "gist_description": "Setup WSL2 & lauch Ubuntu distro install",
     "github_file": "gists/setup-ubuntu-wsl2.ps1"
+  },
+  {
+    "gist_url": "https://gist.github.com/igotinfected/7e131200cf2b418941ba61cdf33a8518",
+    "gist_title": "bootstrap-dotfiles.fish",
+    "gist_description": "Bootstrap dotfiles via a fish script. This script clones and bootstraps my dotfiles repo.",
+    "github_file": "gists/bootstrap-dotfiles.fish"
   }
 ]
