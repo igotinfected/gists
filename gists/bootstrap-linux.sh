@@ -22,6 +22,7 @@ sudo apt install -y \
 	build-essential \
 	ca-certificates \
 	software-properties-common \
+	bat \
 	curl \
 	fish \
 	gnupg \
