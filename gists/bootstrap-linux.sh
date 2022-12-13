@@ -4,14 +4,14 @@
 echo "==> 🔍 determining OS..."
 unameOut=$(uname -a)
 case "${unameOut}" in
-    *Microsoft*)     OS="WSL";;
-    *microsoft*)     OS="WSL2";;
-    Linux*)     OS="Linux";;
-    Darwin*)    OS="Mac";;
-    CYGWIN*)    OS="Cygwin";;
-    MINGW*)     OS="Windows";;
-    *Msys)     OS="Windows";;
-    *)          OS="UNKNOWN:${unameOut}"
+    *Microsoft*) OS="WSL";;
+    *microsoft*) OS="WSL2";;
+    Linux*) OS="Linux";;
+    Darwin*) OS="Mac";;
+    CYGWIN*) OS="Cygwin";;
+    MINGW*) OS="Windows";;
+    *Msys) OS="Windows";;
+    *) OS="UNKNOWN:${unameOut}"
 esac
 echo "==> 💡 OS determined as ${OS}!"
 
@@ -49,8 +49,8 @@ curl -sS https://starship.rs/install.sh | sh
 # configure windows settings (based on https://github.com/Alex-D/dotfiles#setup-windows-terminal)
 echo "==> ⚙️ configuring windows specific settings (windows terminal, pwsh profile, ...)"
 
-windowsUserProfile=/mnt/c/Users/$(cmd.exe /c "echo %USERNAME%" 2>/dev/null | tr -d '\r')
 if [[ ${OS} == "WSL" ]] || [[ ${OS} == "WSL2" ]]; then
+    windowsUserProfile=/mnt/c/Users/$(cmd.exe /c "echo %USERNAME%" 2>/dev/null | tr -d '\r')
     # copy windows terminal settings
     cp .config/windows-terminal/settings.json ${windowsUserProfile}/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json
     
