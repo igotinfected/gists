@@ -1,7 +1,7 @@
 # based on https://github.com/Alex-D/dotfiles#setup-wsl-2
 # run as admin in pwsh
 
-# enable wsl + features
+# enable wsl + required features
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 

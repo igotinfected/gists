@@ -22,6 +22,7 @@ jobs:
         with:
           files: |
             gists/**
+          since_last_remote_commit: true
 
   generate_matrix:
     name: Generate matrix based on changed files

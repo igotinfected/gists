@@ -64,7 +64,6 @@ curl -sS https://gist.githubusercontent.com/igotinfected/b86359da8e64fd3cfd1fa11
 echo "==> 🌌 installing starship..."
 curl -sS https://starship.rs/install.sh | sh
 
-
 # configure windows settings (based on https://github.com/Alex-D/dotfiles#setup-windows-terminal)
 echo "==> ⚙️ configuring windows specific settings (windows terminal, pwsh profile, ...)"
 

@@ -6,19 +6,19 @@ echo "==> 📦 ensuring fontconfig package is installed..."
 
 # TODO: allow passing font URL as argument
 # download the font
-	echo "⬇️ downloading the font..."
+echo "==> ⬇️ downloading the font..."
 wget "https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.ttf"
 
 # create font directory if it doesn't exist
-echo "📁 creating the font directory..."
+echo "==> 📁 creating the font directory..."
 mkdir -p $HOME/.local/share/fonts
 
 # install the font
-echo "📦 installing the font..."
+echo "==> 📦 installing the font..."
 mv "Fira Code Regular Nerd Font Complete Mono.ttf" $HOME/.local/share/fonts
 
 # refresh font cache
-echo "🧹 refreshing font cache..."
+echo "==> 🧹 refreshing font cache..."
 fc-cache -fv
 
-echo "✅ done!"
+echo "==> ✅ done!"
