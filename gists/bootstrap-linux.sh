@@ -17,7 +17,20 @@ echo "==> 💡 OS determined as ${OS}!"
 
 # install basic packages
 echo "==> 📦 installing basic packages..."
-sudo apt install -y \
+# first add missing packages feeds
+# add microsoft .NET package
+wget https://packages.microsoft.com/config/ubuntu/22.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+
+# .NET SDK fix (based on https://github.com/dotnet/sdk/issues/27129#issuecomment-1214358108)
+sudo tee -a /etc/apt/preferences > /dev/null <<EOT
+Package: *net*
+Pin: origin packages.microsoft.com
+Pin-Priority: 1001
+EOT
+
+sudo apt update && sudo apt install -y \
 	apt-transport-https \
 	build-essential \
 	ca-certificates \
@@ -31,7 +44,13 @@ sudo apt install -y \
 	openssh-server \
 	openvpn \
 	vim \
-	exa
+	exa \
+	dotnet-sdk-6.0 \
+	dotnet-sdk-7.0
+
+# install git-credential-manager (as .NET global tool)
+echo "==> 📦 installing git-credential-manager..."
+dotnet tool install -g git-credential-manager
 
 # set fish as default shell
 echo "==> 🐟 setting fish as default shell..."
