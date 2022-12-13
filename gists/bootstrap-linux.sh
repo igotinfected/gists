@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # detect OS (based on https://github.com/microsoft/WSL/issues/4071#issuecomment-1223393940)
+echo "==> 🔍 determining OS..."
 unameOut=$(uname -a)
 case "${unameOut}" in
     *Microsoft*)     OS="WSL";;
@@ -12,6 +13,7 @@ case "${unameOut}" in
     *Msys)     OS="Windows";;
     *)          OS="UNKNOWN:${unameOut}"
 esac
+echo "==> 💡 OS determined as ${OS}!"
 
 # install basic packages
 echo "==> 📦 installing basic packages..."
@@ -27,7 +29,8 @@ sudo apt install -y \
 	git \
 	openssh-server \
 	openvpn \
-	vim
+	vim \
+	exa
 
 # set fish as default shell
 echo "==> 🐟 setting fish as default shell..."
@@ -43,7 +46,7 @@ curl -sS https://starship.rs/install.sh | sh
 
 
 # configure windows settings (based on https://github.com/Alex-D/dotfiles#setup-windows-terminal)
-echo "⚙️ configuring windows specific settings (windows terminal, pwsh profile, ...)"
+echo "==> ⚙️ configuring windows specific settings (windows terminal, pwsh profile, ...)"
 
 windowsUserProfile=/mnt/c/Users/$(cmd.exe /c "echo %USERNAME%" 2>/dev/null | tr -d '\r')
 if [[ ${OS} == "WSL" ]] || [[ ${OS} == "WSL2" ]]; then
