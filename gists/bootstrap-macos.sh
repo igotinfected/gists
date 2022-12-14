@@ -11,6 +11,6 @@ brew install fish
 # set fish as default shell
 echo "==> 🐟 setting fish as default shell..."
 sudo bash -c 'echo $(which fish) >> /etc/shells'
-sudo -u $USER chsh -s sudo bash -c $(which fish) 
+sudo -u $USER chsh -s $(which fish) 
 
 echo "==> 🚀 setup complete, reboot recommended!"
