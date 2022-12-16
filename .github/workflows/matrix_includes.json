@@ -28,5 +28,11 @@
     "gist_title": "bootstrap-dotfiles.fish",
     "gist_description": "Bootstrap dotfiles via a fish script. This script clones and bootstraps my dotfiles repo.",
     "github_file": "gists/bootstrap-dotfiles.fish"
+  },
+  {
+    "gist_url": "https://gist.github.com/igotinfected/f6de39378d7ca6bb1b8e3a718f0b6670",
+    "gist_title": ".editorconfig",
+    "gist_description": "Global EditorConfig for C#/.NET projects",
+    "github_file": "gists/.editorconfig"
   }
 ]
